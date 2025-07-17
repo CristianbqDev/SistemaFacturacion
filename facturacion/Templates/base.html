@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema de Facturación{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <script src="{% static 'js/acciones.js' %}"></script>
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center;">Sistema de Facturación</h1>
+        <nav style="text-align: center; margin-bottom: 20px;">
+            <a href="{% url 'crear_producto' %}" class="btn">Nuevo Producto</a>
+            <a href="{% url 'listar_productos' %}" class="btn">Lista Productos</a>
+            <a href="{% url 'crear_factura' %}" class="btn">Nueva Factura</a>
+            <a href="{% url 'listar_facturas' %}" class="btn">Lista Facturas</a>
+
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

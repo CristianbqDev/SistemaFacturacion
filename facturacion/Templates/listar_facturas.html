@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Listado de Facturas</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Fecha</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Total</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for factura in facturas %}
+                <tr>
+                    <td>{{ factura.id }}</td>
+                    <td>{{ factura.fecha }}</td>
+                    <td>{{ factura.cliente }}</td>
+                    <td>{{ factura.producto.nombre }}</td>
+                    <td>${{ factura.total }}</td>
+                    <td>
+                        <a href="{% url 'editar_factura' factura.id %}" class="btn">Editar</a>
+                        <a href="{% url 'eliminar_factura' factura.id %}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="6">No hay facturas registradas.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

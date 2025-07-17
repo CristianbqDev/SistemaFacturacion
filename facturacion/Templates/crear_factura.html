@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Crear Factura</title>
-</head>
-<body>
-    <h1>Registrar Factura</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Crear Factura{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center;">Registrar Factura</h2>
+<form method="post" style="width: 400px; margin: auto;">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Guardar</button>
+</form>
+{% endblock %}
