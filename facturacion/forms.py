@@ -11,7 +11,7 @@ class ProductoForm(forms.ModelForm):
 class FacturaForm(forms.ModelForm):
     class Meta:
         model = Factura
-        fields = ['cliente', 'producto', 'total']
+        fields = '__all__'
 
 
 
